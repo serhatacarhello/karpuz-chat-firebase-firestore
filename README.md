@@ -25,10 +25,10 @@ npm start
 
 App will run on http://localhost:3000
 
-![Login Page](../../src/assets/login.png)
-![Send Message and Add Image](../../src/assets/sendmessageaddimage.png)
-![Like and Add Comment](../../src/assets/likeandaddcomment.png)
-![Add Emoji](../../src/assets/addemoji.png)
+![login](<img src="../../src/assets/login.png" alt="login page"/>)
+![sendMessageAndAddImage](<img src="../../src/assets/sendmessageaddimage.png" alt="add image and send message"/>)
+![likeAndComment](<img src="../../src/assets/likeandaddcomment.png" alt="like and add comment"/>)
+![addemoji](<img src="../../src/assets/addemoji.png" alt="add emoji"/>)
 
 ## Stack
 
