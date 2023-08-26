@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { navLinks } from "../../../utils/NavLinks";
+import { navLinks } from "./../../../utils/navLinks";
 
 export default function SideNav() {
   return (
