@@ -25,17 +25,6 @@ npm start
 
 App will run on http://localhost:3000
 
-#Sign In
-<img src="./src/assets/login.png" alt="login page"/>
-#Send Message
-<img src="./src/assets/sendmessageaddimage.png" alt="add image and send message"/>
-
-#Like and add comment
-<img src="./src/assets/likeandaddcomment.png" alt="like and add comment"/>
-
-#Add emoji
-<img src="./src/assets/addemoji.png" alt="add emoji"/>
-
 ## Stack
 
 - React - Frontend framework
@@ -54,6 +43,17 @@ Enable the following Firebase products:
 - Storage
 
 See Firebase docs for setup details.
+
+#Sign In
+<img src="./src/assets/login.png" alt="login page"/>
+#Send Message
+<img src="./src/assets/sendmessageaddimage.png" alt="add image and send message"/>
+
+#Like and add comment
+<img src="./src/assets/likeandaddcomment.png" alt="like and add comment"/>
+
+#Add emoji
+<img src="./src/assets/addemoji.png" alt="add emoji"/>
 
 ## Contributing
 
