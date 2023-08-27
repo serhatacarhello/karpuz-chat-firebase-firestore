@@ -135,17 +135,9 @@ export default function PostTweet() {
   // form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
+
     const textContent = message;
-    console.log(
-      "🚀 ~ file: PostTweet.jsx:38 ~ handleSubmit ~ textContent:",
-      textContent
-    );
     const imageContent = image;
-    console.log(
-      "🚀 ~ file: PostTweet.jsx:40 ~ handleSubmit ~ imageContent:",
-      imageContent
-    );
 
     if (!textContent && !imageContent) {
       toast.warn("Create a post");
@@ -161,7 +153,7 @@ export default function PostTweet() {
     }
 
     try {
-      const docRef = await addDoc(tweetsCollectionRef, {
+      await addDoc(tweetsCollectionRef, {
         content: {
           textContent,
           imageContent: imageUrl,
@@ -176,10 +168,11 @@ export default function PostTweet() {
           photoURL: photoURL ? photoURL : defaultAvatar,
           uid,
         },
+      }).then((result) => {
+        console.log("message id:", result.id);
       });
-      console.log("Document written with ID: ", docRef.id);
+      // console.log("Document written with ID: ", docRef.id);
       toast.success("Message sent");
-
       // Empty  inputs
       setMessage("");
       setImage("");
@@ -189,6 +182,7 @@ export default function PostTweet() {
       toast.error("Error adding document: ", e);
     }
   };
+
   const toggleEmojiMenu = () => {
     setIsEmojiMenuOpen((prev) => !prev);
   };
@@ -221,7 +215,7 @@ export default function PostTweet() {
             />
           </div>
 
-          <div className="flex-1 px-2 pt-2 mt-2">
+          <div className="flex-1 px-2 pt-2 mt-2 pe-3">
             <textarea
               id="message"
               name="message"

@@ -6,17 +6,12 @@ import millify from "millify";
 import CommentModal from "./comment-modal/Modal";
 
 export default function Footer({ tweet }) {
-  const { interaction, id, content, user } = tweet;
+  const { interaction, id, content } = tweet;
   const { imageContent } = content;
   const tweetDocRef = doc(db, "tweets", id);
 
   const currentUser = auth.currentUser;
   const currentUserId = currentUser.uid;
-  console.log(
-    "🚀 ~ file: index.jsx:15 ~ Footer ~ currentUserId:",
-    currentUserId
-  );
-  console.log("🚀 ~ file: index.jsx:14 ~ Footer ~ currentUser:", currentUser);
 
   // const date = createdAt?.toDate();
   const [isLiked, setIsLiked] = useState(false);
