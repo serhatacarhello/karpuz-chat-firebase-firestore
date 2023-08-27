@@ -1,4 +1,4 @@
-import { db } from "../../../../../../firebase/config";
+import { auth, db } from "../../../../../../firebase/config";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
@@ -9,6 +9,15 @@ export default function Footer({ tweet }) {
   const { interaction, id, content, user } = tweet;
   const { imageContent } = content;
   const tweetDocRef = doc(db, "tweets", id);
+
+  const currentUser = auth.currentUser;
+  const currentUserId = currentUser.uid;
+  console.log(
+    "🚀 ~ file: index.jsx:15 ~ Footer ~ currentUserId:",
+    currentUserId
+  );
+  console.log("🚀 ~ file: index.jsx:14 ~ Footer ~ currentUser:", currentUser);
+
   // const date = createdAt?.toDate();
   const [isLiked, setIsLiked] = useState(false);
   const [isCommentModelOpen, setIsCommentModelOpen] = useState(false);
@@ -16,7 +25,7 @@ export default function Footer({ tweet }) {
 
   // watch changes on tweet
   useEffect(() => {
-    if (interaction?.likes?.includes(user.uid)) {
+    if (interaction?.likes?.includes(currentUserId)) {
       setIsLiked(true);
     } else setIsLiked(false);
   }, [tweet]);
@@ -38,13 +47,13 @@ export default function Footer({ tweet }) {
       //remove
       if (isLiked) {
         await updateDoc(tweetDocRef, {
-          "interaction.likes": arrayRemove(user.uid),
+          "interaction.likes": arrayRemove(currentUserId),
         });
         toast.success("Like removed");
       } else {
         //add
         await updateDoc(tweetDocRef, {
-          "interaction.likes": arrayUnion(user.uid),
+          "interaction.likes": arrayUnion(currentUserId),
         });
         toast.success("Like added");
       }
@@ -58,8 +67,9 @@ export default function Footer({ tweet }) {
   };
 
   const handleClick = () => {
-    //
+    //photoURL
   };
+
   return (
     <>
       <div className="flex">
